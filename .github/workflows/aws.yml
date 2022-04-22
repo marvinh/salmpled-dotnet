@@ -55,6 +55,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       
+
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: arn:aws:iam::298913019004:role/github-actions-role
+        # aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        # aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+    
     - name: App Settings Variable Substitution
       uses: microsoft/variable-substitution@v1
       with:
@@ -63,14 +73,6 @@ jobs:
         ConnectionStrings.SalmpledDatabase: ${{ secrets.SQL_CS }}
         Auth0.Domain: ${{ secrets.AUTH0_DOMAIN }}
         Auth0.Audience: ${{ secrets.AUTH0_AUDIENCE }}
-
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        role-to-assume: arn:aws:iam::298913019004:role/my-github-actions-role-test
-        # aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        # aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
 
     - name: Login to Amazon ECR
       id: login-ecr
