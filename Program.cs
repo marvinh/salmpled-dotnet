@@ -6,7 +6,10 @@ using salmpledv2_backend.Services;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddJsonFile("appsettings-prod.json", false, true);
 
 // Add services to the container.
 
