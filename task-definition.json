@@ -1,6 +1,6 @@
 {
     "ipcMode": null,
-    "executionRoleArn": "ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::298913019004:role/SalmpledCdkStack-MyFargateServiceDotnetTaskDefExec-YO1LET0LCRZX",
     "containerDefinitions": [
       {
         "dnsSearchDomains": [],
