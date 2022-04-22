@@ -42,7 +42,10 @@ env:
                                                # containerDefinitions section of your task definition
 
 permissions:
+  id-token: write
   contents: read
+  
+
 
 jobs:
   deploy:
@@ -65,9 +68,6 @@ jobs:
         # aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         role-session-name: rolesession
         aws-region: ${{ env.AWS_REGION }}
-        permissions:
-          id-token: write
-          contents: write
     
     - name: App Settings Variable Substitution
       uses: microsoft/variable-substitution@v1
