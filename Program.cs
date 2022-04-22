@@ -9,7 +9,12 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Configuration.AddJsonFile("appsettings-prod.json", false, true);
+
+builder.Configuration.AddJsonFile("appsettings-prod.json", true, true);
+
+if(builder.Configuration.GetConnectionString("SalmpledDatabase") == "") {
+    builder.Configuration.AddJsonFile("appsettings.json", true, true);
+}
 
 // Add services to the container.
 
