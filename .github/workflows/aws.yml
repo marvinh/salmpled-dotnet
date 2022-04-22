@@ -60,9 +60,9 @@ jobs:
       with:
         files: '${{env.DOTNET_ROOT}}/myapp/appsettings-prod.json'
       env:
-        ConnectionStrings.SalmpledDatabase: ${{ secrets.sql_cs }}
-        Auth0.Domain: ${{ secrets.auth0_domain }}
-        Auth0.Audience: ${{ secrets.auth0_audience }}
+        ConnectionStrings.SalmpledDatabase: ${{ secrets.SQL_CS }}
+        Auth0.Domain: ${{ secrets.AUTH0_DOMAIN }}
+        Auth0.Audience: ${{ secrets.AUTH0_AUDIENCE }}
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
