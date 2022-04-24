@@ -33,6 +33,7 @@ builder.Services.AddCors(options =>
 
 var domain = $"https://{builder.Configuration["Auth0:Domain"]}/";
 Console.WriteLine(domain);
+Console.WriteLine(builder.Configuration.GetConnectionString("SalmpledDatabase"));
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
