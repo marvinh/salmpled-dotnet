@@ -72,13 +72,13 @@ jobs:
     - name: App Settings Variable Substitution
       uses: microsoft/variable-substitution@v1
       with:
-        files: 'appsettings.json'
-      env:
         ConnectionStrings.SalmpledDatabase: ${{ secrets.SQL_CS }}
         Auth0.Domain: ${{ secrets.AUTH0_DOMAIN }}
         Auth0.Audience: ${{ secrets.AUTH0_AUDIENCE }}
-      run: |
-          echo ${#Auth0.Audience}
+        files: 'appsettings.json'
+     
+        
+      
 
     - name: Login to Amazon ECR
       id: login-ecr
