@@ -40,6 +40,9 @@ env:
                                                # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: web          # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
+  CS: ${{ secrets.SQL_CS }}
+  A0D: ${{ secrets.AUTH0_DOMAIN }}
+  A0A: ${{ secrets.AUTH0_AUDIENCE }}
 
 permissions:
   id-token: write
@@ -72,10 +75,12 @@ jobs:
     - name: App Settings Variable Substitution
       uses: microsoft/variable-substitution@v1
       with:
-        ConnectionStrings.SalmpledDatabase: ${{ secrets.SQL_CS }}
-        Auth0.Domain: ${{ secrets.AUTH0_DOMAIN }}
-        Auth0.Audience: ${{ secrets.AUTH0_AUDIENCE }}
         files: 'appsettings.json'
+      env:
+        ConnectionStrings.SalmpledDatabase: ${{ env.CS }}
+        Auth0.Domain: ${{ env.A0D }}
+        Auth0.Audience: ${{ env.A0A}}
+
      
         
       
