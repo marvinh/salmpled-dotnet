@@ -43,7 +43,7 @@ env:
 
 permissions:
   id-token: write
-  contents: read
+  contents: write
   
 
 
@@ -64,15 +64,13 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v1
       with:
         role-to-assume: arn:aws:iam::298913019004:role/github-actions-role
-        # aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        # aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         role-session-name: rolesession
         aws-region: ${{ env.AWS_REGION }}
     
     - name: App Settings Variable Substitution
       uses: microsoft/variable-substitution@v1
       with:
-        files: 'appsettings-prod.json'
+        files: 'appsettings.json'
       env:
         ConnectionStrings.SalmpledDatabase: ${{ secrets.SQL_CS }}
         Auth0.Domain: ${{ secrets.AUTH0_DOMAIN }}
