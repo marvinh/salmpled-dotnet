@@ -32,6 +32,7 @@ builder.Services.AddCors(options =>
 
 
 var domain = $"https://{builder.Configuration["Auth0:Domain"]}/";
+Console.WriteLine(domain);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {

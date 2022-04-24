@@ -70,7 +70,7 @@ jobs:
     - name: App Settings Variable Substitution
       uses: microsoft/variable-substitution@v1
       with:
-        files: 'salmpledv2-backend/appsettings.json'
+        files: 'appsettings.json'
       env:
         ConnectionStrings.SalmpledDatabase: ${{ secrets.SQL_CS }}
         Auth0.Domain: ${{ secrets.AUTH0_DOMAIN }}
