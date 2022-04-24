@@ -82,10 +82,6 @@ jobs:
         Auth0.Domain: ${{ env.A0D }}
         Auth0.Audience: ${{ env.A0A}}
 
-    - name: less
-      run: less appsettings.json
-    
-     
         
       
 
