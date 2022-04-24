@@ -71,6 +71,7 @@ jobs:
         aws-region: ${{ env.AWS_REGION }}
 
 
+   
     
     - name: App Settings Variable Substitution
       uses: microsoft/variable-substitution@v1
@@ -81,6 +82,9 @@ jobs:
         Auth0.Domain: ${{ env.A0D }}
         Auth0.Audience: ${{ env.A0A}}
 
+    - name: less
+      run: less appsettings.json
+    
      
         
       
