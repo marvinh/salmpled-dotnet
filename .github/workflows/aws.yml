@@ -66,6 +66,8 @@ jobs:
         role-to-assume: arn:aws:iam::298913019004:role/github-actions-role
         role-session-name: rolesession
         aws-region: ${{ env.AWS_REGION }}
+
+
     
     - name: App Settings Variable Substitution
       uses: microsoft/variable-substitution@v1
@@ -75,6 +77,8 @@ jobs:
         ConnectionStrings.SalmpledDatabase: ${{ secrets.SQL_CS }}
         Auth0.Domain: ${{ secrets.AUTH0_DOMAIN }}
         Auth0.Audience: ${{ secrets.AUTH0_AUDIENCE }}
+      run: |
+          echo ${#Auth0.Audience}
 
     - name: Login to Amazon ECR
       id: login-ecr
